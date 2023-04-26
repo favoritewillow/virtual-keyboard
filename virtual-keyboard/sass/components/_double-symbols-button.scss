@@ -1,0 +1,17 @@
+.symbols { 
+  position: relative;
+}
+
+.top-left {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;  
+}
