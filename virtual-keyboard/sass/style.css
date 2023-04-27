@@ -7,6 +7,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+  max-width: 50%;
+}
+
 .keyboard__content {
   width: 4rem;
   height: 4rem;
@@ -32,12 +36,25 @@ body {
   width: 5rem;
 }
 
-.caps-lock {
+.del {
+  width: 4.5rem;
+}
+
+.caps-lock,
+.shift {
   width: 10.5rem;
 }
 
 .enter {
-  width: 8rem;
+  width: 8.7rem;
+}
+
+.ctrl {
+  width: 6.5rem;
+}
+
+.space {
+  width: 29rem;
 }
 
 .left-button {
@@ -66,15 +83,28 @@ body {
   flex-grow: 1;
 }
 
+.control-key {
+  background-color: violet;
+}
+
 .keyboard__wrapper {
   max-width: 72rem;
   margin: 0 auto;
+}
+
+.keyboard__contaner {
+  border: 0.1rem solid rgb(34, 12, 134);
+  border-radius: 0.6rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: green;
 }
 
 .keyboard__text {
-  width: 72rem;
+  width: 71rem;
   height: 15rem;
+  margin: 10rem 0 5rem 0;
+  border-radius: 0.6rem;
+  border: 0.1rem solid rgb(34, 12, 134);
 }/*# sourceMappingURL=style.css.map */
