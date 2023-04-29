@@ -15,10 +15,10 @@ img {
   width: 4rem;
   height: 4rem;
   padding: 0;
-  border: 0.1rem solid #db1414;
+  border: 0.1rem solid #ecf5fa;
   border-radius: 0.6rem;
-  background-color: pink;
-  color: black;
+  background-color: #5283a2;
+  color: white;
   text-align: center;
   cursor: pointer;
   display: flex;
@@ -84,7 +84,15 @@ img {
 }
 
 .control-key {
-  background-color: violet;
+  background-color: #339bdd;
+  border: 0.1rem solid #bce8ff;
+  color: #bce8ff;
+}
+
+.key-highlights {
+  background-color: rgba(33, 237, 245, 0.5411764706);
+  border: 0.1rem solid #1feaf2;
+  color: black;
 }
 
 .keyboard__wrapper {
@@ -93,12 +101,12 @@ img {
 }
 
 .keyboard__contaner {
-  border: 0.1rem solid rgb(34, 12, 134);
+  border: 0.1rem solid green;
   border-radius: 0.6rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: green;
+  background-color: #3c5768;
 }
 
 .keyboard__text {
@@ -106,5 +114,5 @@ img {
   height: 15rem;
   margin: 10rem 0 5rem 0;
   border-radius: 0.6rem;
-  border: 0.1rem solid rgb(34, 12, 134);
+  border: 0.1rem solid #3c5768;
 }/*# sourceMappingURL=style.css.map */

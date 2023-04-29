@@ -1,3 +1,5 @@
 .control-key {
-  background-color: violet;
+  background-color: $color-control-key-background;
+  border: 0.1rem solid $color-control-key-border;
+  color: $color-control-key-letter;
 }

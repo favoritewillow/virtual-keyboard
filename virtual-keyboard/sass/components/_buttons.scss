@@ -2,10 +2,10 @@
   width: 4rem;
   height: 4rem;
   padding: 0;
-  border: 0.1rem solid #db1414;
+  border: 0.1rem solid $color-key-border;
   border-radius: 0.6rem;
-  background-color: pink;
-  color: black;  
+  background-color: $color-key-background;
+  color: $color-key-letter;  
   text-align: center;
   cursor: pointer; 
   display: flex;
