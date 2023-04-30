@@ -1,4 +1,57 @@
 const lineSecondJSON = {
+  itemSymbol: {
+    itemApproximately: "~",
+    itemCommaReverse: "`"
+  },
+  itemOne: {
+    itemExclamation: "!",
+    item1: "1"
+  },
+  itemTwo: {
+    itemAt: "@",
+    item2: "2"
+  },
+  itemThree: {
+    itemGrill: "#",
+    item3: "3"
+  },
+  itemFour: {
+    itemDollar: "$",
+    item4: "4"
+  },
+  itemFive: {
+    itemInterest: "%",
+    item5: "5"
+  },
+  itemSix: {
+    itemColon: ":",
+    item6: "6"
+  },
+  itemSeven: {
+    itemQuestion: "?",
+    item7: "7"
+  },
+  itemEight: {
+    itemStar: "?",
+    item8: "8"
+  },
+  itemNine: {
+    itemBracketCircleLeft: "(",
+    item9: "9"
+  },
+  itemZero: {
+    itemBracketCircleRight: ")",
+    item0: "0"
+  },
+  itemMinuses: {
+    itemMinuseDown: "_",
+    itemMinuse: "-"
+  },
+  itemPlusEquals: {
+    itemPlus: "+",
+    itemEquals: "="
+  },
+  itemBackspace: "Backspace",
   itemTab: "Tab",
   itemQ: "Q",
   itemW: "W",
@@ -77,6 +130,7 @@ const wrapper = document.createElement("div");
 
   const inputText = document.createElement("input");
   inputText.className = CssClasses.INPUT;
+  inputText.type = "text";
   wrapper.appendChild(inputText); 
 
   const keyboard = document.createElement("div");
@@ -88,12 +142,39 @@ const buttons = {};
 for (let key in lineSecondJSON) {
   //console.log(key);
   const buttonContent = document.createElement("button");
-  buttonContent.className = CssClasses.CONTENT;
-  buttonContent.innerText = `${lineSecondJSON[key]}`;
+ 
+  if (typeof lineSecondJSON[key] === "object") {    
+    buttonContent.className = CssClasses.SYMBOLS;  
+    buttonContent.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[1]];
+
+    console.log(lineSecondJSON[key][Object.keys(lineSecondJSON[key])[1]]);
+    const divTopSymbol = document.createElement("span");
+    divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
+    divTopSymbol.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[0]];
+    buttonContent.appendChild(divTopSymbol);
+    
+  } else {    
+    buttonContent.className = CssClasses.CONTENT;
+    buttonContent.innerText = `${lineSecondJSON[key]}`;   
+    
+  }
   keyboard.appendChild(buttonContent);
   buttons[key] = buttonContent;
+
+ 
+ buttonContent.addEventListener("click", (event) => {
+  
+  inputText.value += event.target.innerText;
+  
+  inputText.focus();
+});
+
 };
 
+
+const buttonBackspace = buttons.itemBackspace;
+buttonBackspace.classList.add(CssClasses.CONTROL_KEY);
+buttonBackspace.classList.add(CssClasses.BACKSPACE);
 
 const buttonTab = buttons.itemTab;
 buttonTab.classList.add(CssClasses.CONTROL_KEY);
@@ -128,9 +209,16 @@ buttonWin.classList.add(CssClasses.CONTROL_KEY);
 const buttonAltLeft = buttons.itemAltleft;
 buttonAltLeft.classList.add(CssClasses.CONTROL_KEY);
 
+
+
+
 const buttonSpace = buttons.itemSpace;
 buttonSpace.classList.add(CssClasses.CONTROL_KEY);
 buttonSpace.classList.add(CssClasses.SPACE);
+buttonSpace.addEventListener("click", () => {
+  inputText.value += " ";
+  inputText.focus();
+});
 
 const buttonAltRight = buttons.itemAltRight;
 buttonAltRight.classList.add(CssClasses.CONTROL_KEY);
@@ -174,6 +262,14 @@ const divTopSymbol = document.createElement("span");
 keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel); 
 buttons.itemReverseSlash = newButtonReverseSlash;
 
+const buttonReverseSlash = buttons.itemReverseSlash;
+buttonReverseSlash.addEventListener("click", () => {
+  inputText.value += "\\";
+  inputText.focus();
+});
+
+
+
 Object.values(buttons).forEach(button => {
   button.addEventListener("click", () => {
     button.classList.add("key-highlights");
@@ -213,9 +309,10 @@ document.addEventListener("keydown", event => {
   }
   if (event.key === "Alt" && buttons.itemAltRight) {
     buttons.itemAltRight.classList.add("key-highlights");
+    
   }
   if (event.key === "Shift" && buttons.itemShiftSmall) {
-    buttons.itemShiftSmall.classList.add("key-highlights");
+    buttons.itemShiftSmall.classList.add("key-highlights");    
   }
   if (event.key === "ArrowUp" && buttons.itemArrowUp) {
     buttons.itemArrowUp.classList.add("key-highlights");
@@ -229,11 +326,6 @@ document.addEventListener("keydown", event => {
   if (event.key === "ArrowRight" && buttons.itemArrowRight) {
     buttons.itemArrowRight.classList.add("key-highlights");
   }
-
-
-
-
-
 });
 
 document.addEventListener("keydown", event => {
@@ -244,3 +336,24 @@ document.addEventListener("keydown", event => {
   }
 });
 
+inputText.addEventListener("input", (event) => {
+  const input = event.target;
+ 
+  const startPosition = input.selectionStart;
+  const endPosition = input.selectionEnd;
+  
+  input.value = input.value;
+ 
+  input.setSelectionRange(startPosition, endPosition);
+});
+
+/*buttons.addEventListener("click", () => {
+  const input = inputText;
+  
+  const startPosition = input.selectionStart;
+  const endPosition = input.selectionEnd;
+  
+  input.value = input.value.substring(0, startPosition) + buttons.innerText + input.value.substring(endPosition);
+  
+  input.setSelectionRange(startPosition + buttons.innerText.length, startPosition + buttons.innerText.length);
+});*/
