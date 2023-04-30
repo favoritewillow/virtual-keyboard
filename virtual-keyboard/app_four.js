@@ -146,12 +146,11 @@ for (let key in lineSecondJSON) {
   if (typeof lineSecondJSON[key] === "object") {    
     buttonContent.className = CssClasses.SYMBOLS;  
     buttonContent.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[1]];
-
-    console.log(lineSecondJSON[key][Object.keys(lineSecondJSON[key])[1]]);
+    
     const divTopSymbol = document.createElement("span");
     divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
     divTopSymbol.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[0]];
-    buttonContent.appendChild(divTopSymbol);
+    buttonContent.appendChild(divTopSymbol);    
     
   } else {    
     buttonContent.className = CssClasses.CONTENT;
@@ -268,11 +267,14 @@ buttonReverseSlash.addEventListener("click", () => {
   inputText.focus();
 });
 
-
-
 Object.values(buttons).forEach(button => {
   button.addEventListener("click", () => {
     button.classList.add("key-highlights");
+    const button = buttons[`item${keyName}`];  
+    if (button) {
+      inputText.value += "\\";
+      inputText.focus();
+    } 
   });
 });
 
@@ -281,8 +283,47 @@ document.addEventListener("keydown", event => {
   const button = buttons[`item${keyName}`];  
   if (button) {    
     button.classList.add("key-highlights");
-    console.log(button);
+    console.log(event.key);
+  } 
+  if (event.key === "`" && buttons.itemSymbol) {
+    buttons.itemSymbol.classList.add("key-highlights");
+  } 
+  if (event.key === "1" && buttons.itemOne) {
+    buttons.itemOne.classList.add("key-highlights");
+  } 
+  if (event.key === "2" && buttons.itemTwo) {
+    buttons.itemTwo.classList.add("key-highlights");
+  } 
+  if (event.key === "3" && buttons.itemThree) {
+    buttons.itemThree.classList.add("key-highlights");
+  } 
+  if (event.key === "4" && buttons.itemFour) {
+    buttons.itemFour.classList.add("key-highlights");
+  } 
+  if (event.key === "5" && buttons.itemFive) {
+    buttons.itemFive.classList.add("key-highlights");
+  } 
+  if (event.key === "6" && buttons.itemSix) {
+    buttons.itemSix.classList.add("key-highlights");
+  } 
+  if (event.key === "7" && buttons.itemSeven) {
+    buttons.itemSeven.classList.add("key-highlights");
+  } 
+  if (event.key === "8" && buttons.itemEight) {
+    buttons.itemEight.classList.add("key-highlights");
+  } 
+  if (event.key === "9" && buttons.itemNine) {
+    buttons.itemNine.classList.add("key-highlights");
   }  
+  if (event.key === "0" && buttons.itemZero) {
+    buttons.itemZero.classList.add("key-highlights");
+  } 
+  if (event.key === "-" && buttons.itemMinuses) {
+    buttons.itemMinuses.classList.add("key-highlights");
+  } 
+  if (event.key === "=" && buttons.itemPlusEquals) {
+    buttons.itemPlusEquals.classList.add("key-highlights");
+  }
   if (event.key === "Delete" && buttons.itemDel) {
     buttons.itemDel.classList.add("key-highlights");
   }
