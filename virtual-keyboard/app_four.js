@@ -13,7 +13,43 @@ const lineSecondJSON = {
   itemBracketLeft: "[",
   itemBracketRight: "]",
   itemReverseSlash: "\\",
-  itemDel: "DEL"
+  itemDel: "DEL",
+  itemCapsLock: "Caps Lock",
+  itemA: "A",
+  itemS: "S",
+  itemD: "D",
+  itemF: "F",
+  itemG: "G",
+  itemH: "H",
+  itemJ: "J",
+  itemK: "K",
+  itemL: "L",
+  itemSemicolon: ";",
+  itemCommaTop: "'",
+  itemEnter: "ENTER",
+  itemShift: "Shift",
+  itemReverseSlashleft: "\\",
+  itemZ: "Z",
+  itemX: "X",
+  itemC: "C",
+  itemV: "V",
+  itemB: "B",
+  itemN: "N",
+  itemM: "M",
+  itemComma: ",",
+  itemDot: ".",
+  itemSlash: "/",
+  itemArrowUp: " ",
+  itemShiftSmall: "Shift",
+  itemCtrlLeft: "Ctrl",
+  itemWin: "Win",
+  itemAltleft: "Alt",
+  itemSpace: " ",
+  itemAltRight: "Alt",
+  itemCtrlRight: "Ctrl",
+  itemArrowLeft: " ",
+  itemArrowDown: " ",
+  itemArrowRight: " " 
 };
 
 const CssClasses = {
@@ -30,8 +66,7 @@ const CssClasses = {
   CAPS_LOCK: "caps-lock",
   DEL: "del",
   ENTER: "enter",
-  SHIFT: "shift",
-  SMALL_SHIFT: "control-key",  
+  SHIFT: "shift",  
   CTRL: "ctrl",   
   SPACE: "space",  
 }
@@ -68,8 +103,59 @@ const buttonDel = buttons.itemDel;
 buttonDel.classList.add(CssClasses.CONTROL_KEY);
 buttonDel.classList.add(CssClasses.DEL);
 
+const buttonCapsLock = buttons.itemCapsLock;
+buttonCapsLock.classList.add(CssClasses.CONTROL_KEY);
+buttonCapsLock.classList.add(CssClasses.CAPS_LOCK);
 
-const keyToRemove = "itemReverseSlash"; // Замените это свойство на свой ключ объекта, который вы хотите удалить
+const buttonEnter = buttons.itemEnter;
+buttonEnter.classList.add(CssClasses.CONTROL_KEY);
+buttonEnter.classList.add(CssClasses.ENTER);
+
+const buttonShift = buttons.itemShift;
+buttonShift.classList.add(CssClasses.CONTROL_KEY);
+buttonShift.classList.add(CssClasses.SHIFT);
+
+const buttonShiftSmall = buttons.itemShiftSmall;
+buttonShiftSmall.classList.add(CssClasses.CONTROL_KEY);
+
+const buttonCtrlLeft = buttons.itemCtrlLeft;
+buttonCtrlLeft.classList.add(CssClasses.CONTROL_KEY);
+buttonCtrlLeft.classList.add(CssClasses.CTRL);
+
+const buttonWin = buttons.itemWin;
+buttonWin.classList.add(CssClasses.CONTROL_KEY);
+
+const buttonAltLeft = buttons.itemAltleft;
+buttonAltLeft.classList.add(CssClasses.CONTROL_KEY);
+
+const buttonSpace = buttons.itemSpace;
+buttonSpace.classList.add(CssClasses.CONTROL_KEY);
+buttonSpace.classList.add(CssClasses.SPACE);
+
+const buttonAltRight = buttons.itemAltRight;
+buttonAltRight.classList.add(CssClasses.CONTROL_KEY);
+
+const buttonCtrlRight = buttons.itemCtrlRight;
+buttonCtrlRight.classList.add(CssClasses.CONTROL_KEY);
+buttonCtrlRight.classList.add(CssClasses.CTRL);
+
+const buttonArrowUp = buttons.itemArrowUp;
+buttonArrowUp.classList.add(CssClasses.CONTROL_KEY);
+buttonArrowUp.innerHTML = "<img src='images/arrow-up.svg'>";
+
+const buttonArrowLeft = buttons.itemArrowLeft;
+buttonArrowLeft.classList.add(CssClasses.CONTROL_KEY);
+buttonArrowLeft.innerHTML = "<img src='images/arrow-left.svg'>";
+
+const buttonArrowDown = buttons.itemArrowDown;
+buttonArrowDown.classList.add(CssClasses.CONTROL_KEY);
+buttonArrowDown.innerHTML = "<img src='images/arrow-down.svg'>";
+
+const buttonArrowRight = buttons.itemArrowRight;
+buttonArrowRight.classList.add(CssClasses.CONTROL_KEY);
+buttonArrowRight.innerHTML = "<img src='images/arrow-right.svg'>";
+
+const keyToRemove = "itemReverseSlash"; 
 const buttonToRemove = buttons[keyToRemove];
 if (buttonToRemove) {
   buttonToRemove.remove();
@@ -85,7 +171,7 @@ const divTopSymbol = document.createElement("span");
   divTopSymbol.innerHTML = "/";
   newButtonReverseSlash.appendChild(divTopSymbol);
 
-keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel); // вставляем кнопку перед кнопкой "itemW"
+keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel); 
 buttons.itemReverseSlash = newButtonReverseSlash;
 
 Object.values(buttons).forEach(button => {
@@ -105,8 +191,47 @@ document.addEventListener("keydown", event => {
     buttons.itemDel.classList.add("key-highlights");
   }
   if (event.key === "\\" && buttons.itemReverseSlash) {
-    buttons.itemReverseSlash.classList.add("key-highlights");
+    buttons.itemReverseSlash.classList.add("key-highlights");    
   }
+  if (event.key === "CapsLock" && buttons.itemCapsLock) {
+    buttons.itemCapsLock.classList.add("key-highlights");
+  }
+  if (event.key === "Control" && buttons.itemCtrlLeft) {
+    buttons.itemCtrlLeft.classList.add("key-highlights");
+  }
+  if (event.key === "Control" && buttons.itemCtrlRight) {
+    buttons.itemCtrlRight.classList.add("key-highlights");
+  }
+  if (event.key === "Meta" && buttons.itemWin) {
+    buttons.itemWin.classList.add("key-highlights");
+  }
+  if (event.key === "Enter" && buttons.itemEnter) {
+    buttons.itemEnter.classList.add("key-highlights");
+  }
+  if (event.key === " " && buttons.itemSpace) {
+    buttons.itemSpace.classList.add("key-highlights");
+  }
+  if (event.key === "Alt" && buttons.itemAltRight) {
+    buttons.itemAltRight.classList.add("key-highlights");
+  }
+  if (event.key === "Shift" && buttons.itemShiftSmall) {
+    buttons.itemShiftSmall.classList.add("key-highlights");
+  }
+  if (event.key === "ArrowUp" && buttons.itemArrowUp) {
+    buttons.itemArrowUp.classList.add("key-highlights");
+  }
+  if (event.key === "ArrowDown" && buttons.itemArrowDown) {
+    buttons.itemArrowDown.classList.add("key-highlights");
+  }
+  if (event.key === "ArrowLeft" && buttons.itemArrowLeft) {
+    buttons.itemArrowLeft.classList.add("key-highlights");
+  }
+  if (event.key === "ArrowRight" && buttons.itemArrowRight) {
+    buttons.itemArrowRight.classList.add("key-highlights");
+  }
+
+
+
 
 
 });
@@ -119,19 +244,3 @@ document.addEventListener("keydown", event => {
   }
 });
 
-
-/*
-const buttonSymbol = document.createElement("button");
-  buttonSymbol.className = CssClasses.SYMBOLS;
-  keyboard.appendChild(buttonSymbol); 
-  
-  const divTopSymbol = document.createElement("div");
-  divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
-  divTopSymbol.innerHTML = "/";
-  buttonSymbol.appendChild(divTopSymbol);
-  
-  const divCenterSymbol = document.createElement("div");
-  divCenterSymbol.className = CssClasses.CENTER_SYMBOL;
-  divCenterSymbol.innerHTML = "\\";
-  buttonSymbol.appendChild(divCenterSymbol);
-*/
