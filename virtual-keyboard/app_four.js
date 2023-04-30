@@ -11,7 +11,9 @@ const lineSecondJSON = {
   itemO: "O",
   itemP: "P",
   itemBracketLeft: "[",
-  itemBracketRight: "]"
+  itemBracketRight: "]",
+  itemReverseSlash: "\\",
+  itemDel: "DEL"
 };
 
 const CssClasses = {
@@ -20,19 +22,18 @@ const CssClasses = {
   CONTENT: "keyboard__content",
   INPUT: "keyboard__text",
   SYMBOLS: "keyboard__content symbols",
-  SYMBOL_KEY_LEFT: "keyboard__content symbols control-key",
+  CONTROL_KEY: "control-key",
   TOP_LEFT_SYMBOL: "top-left",
   CENTER_SYMBOL: "centered",
-  BACKSPACE: "keyboard__content backspace control-key",
-  TAB: "keyboard__content tab control-key",
-  CAPS_LOCK: "keyboard__content caps-lock control-key",
-  DEL: "keyboard__content del control-key",
-  ENTER: "keyboard__content enter control-key",
-  SHIFT: "keyboard__content shift control-key",
-  SMALL_SHIFT: "keyboard__content control-key",  
-  CTRL: "keyboard__content ctrl control-key", 
-  WIN_ALT_ICON: "keyboard__content control-key", 
-  SPACE: "keyboard__content space",  
+  BACKSPACE: "backspace",
+  TAB: "tab",
+  CAPS_LOCK: "caps-lock",
+  DEL: "del",
+  ENTER: "enter",
+  SHIFT: "shift",
+  SMALL_SHIFT: "control-key",  
+  CTRL: "ctrl",   
+  SPACE: "space",  
 }
 
 const wrapper = document.createElement("div");
@@ -58,6 +59,35 @@ for (let key in lineSecondJSON) {
   buttons[key] = buttonContent;
 };
 
+
+const buttonTab = buttons.itemTab;
+buttonTab.classList.add(CssClasses.CONTROL_KEY);
+buttonTab.classList.add(CssClasses.TAB);
+
+const buttonDel = buttons.itemDel;
+buttonDel.classList.add(CssClasses.CONTROL_KEY);
+buttonDel.classList.add(CssClasses.DEL);
+
+
+const keyToRemove = "itemReverseSlash"; // Замените это свойство на свой ключ объекта, который вы хотите удалить
+const buttonToRemove = buttons[keyToRemove];
+if (buttonToRemove) {
+  buttonToRemove.remove();
+  delete lineSecondJSON[keyToRemove];
+}
+
+const newButtonReverseSlash = document.createElement("button");
+newButtonReverseSlash.className = CssClasses.SYMBOLS;
+newButtonReverseSlash.innerHTML = "\\";
+
+const divTopSymbol = document.createElement("span");
+  divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
+  divTopSymbol.innerHTML = "/";
+  newButtonReverseSlash.appendChild(divTopSymbol);
+
+keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel); // вставляем кнопку перед кнопкой "itemW"
+buttons.itemReverseSlash = newButtonReverseSlash;
+
 Object.values(buttons).forEach(button => {
   button.addEventListener("click", () => {
     button.classList.add("key-highlights");
@@ -65,13 +95,20 @@ Object.values(buttons).forEach(button => {
 });
 
 document.addEventListener("keydown", event => {
-  console.log(event.key);
-  const keyName = event.key;
-  const button = buttons[`item${keyName.toUpperCase()}`];  
+  const keyName = event.key.toUpperCase();
+  const button = buttons[`item${keyName}`];  
   if (button) {    
     button.classList.add("key-highlights");
     console.log(button);
   }  
+  if (event.key === "Delete" && buttons.itemDel) {
+    buttons.itemDel.classList.add("key-highlights");
+  }
+  if (event.key === "\\" && buttons.itemReverseSlash) {
+    buttons.itemReverseSlash.classList.add("key-highlights");
+  }
+
+
 });
 
 document.addEventListener("keydown", event => {
@@ -83,18 +120,18 @@ document.addEventListener("keydown", event => {
 });
 
 
-/*document.addEventListener("keydown", function (event) {
-  console.log(event.key);
-  const keye = event.key.toUpperCase(); 
-  if (keye in buttons) {
-    buttons[keye].classList.add("key-highlights");
-  }
-});*/
-
-/*document.addEventListener("keydown", function (event) {   
-  console.log(event);  
-  if (event.key === "Q") {
-    buttons["Q"].classList.add("key-highlights");
-  } 
-});*/
-
+/*
+const buttonSymbol = document.createElement("button");
+  buttonSymbol.className = CssClasses.SYMBOLS;
+  keyboard.appendChild(buttonSymbol); 
+  
+  const divTopSymbol = document.createElement("div");
+  divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
+  divTopSymbol.innerHTML = "/";
+  buttonSymbol.appendChild(divTopSymbol);
+  
+  const divCenterSymbol = document.createElement("div");
+  divCenterSymbol.className = CssClasses.CENTER_SYMBOL;
+  divCenterSymbol.innerHTML = "\\";
+  buttonSymbol.appendChild(divCenterSymbol);
+*/
