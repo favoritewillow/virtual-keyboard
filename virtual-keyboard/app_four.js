@@ -1,4 +1,4 @@
-const lineSecondJSON = {
+const keyboardNote = {
   itemSymbol: {
     itemApproximately: "~",
     itemCommaReverse: "`"
@@ -139,22 +139,22 @@ const wrapper = document.createElement("div");
 
 const buttons = {};
 
-for (let key in lineSecondJSON) {
+for (let key in keyboardNote) {
   //console.log(key);
   const buttonContent = document.createElement("button");
  
-  if (typeof lineSecondJSON[key] === "object") {    
+  if (typeof keyboardNote[key] === "object") {    
     buttonContent.className = CssClasses.SYMBOLS;  
-    buttonContent.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[1]];
+    buttonContent.innerText = keyboardNote[key][Object.keys(keyboardNote[key])[1]];
     
     const divTopSymbol = document.createElement("span");
     divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
-    divTopSymbol.innerText = lineSecondJSON[key][Object.keys(lineSecondJSON[key])[0]];
+    divTopSymbol.innerText = keyboardNote[key][Object.keys(keyboardNote[key])[0]];
     buttonContent.appendChild(divTopSymbol);    
     
   } else {    
     buttonContent.className = CssClasses.CONTENT;
-    buttonContent.innerText = `${lineSecondJSON[key]}`;   
+    buttonContent.innerText = `${keyboardNote[key]}`;   
     
   }
   keyboard.appendChild(buttonContent);
@@ -246,7 +246,7 @@ const keyToRemove = "itemReverseSlash";
 const buttonToRemove = buttons[keyToRemove];
 if (buttonToRemove) {
   buttonToRemove.remove();
-  delete lineSecondJSON[keyToRemove];
+  delete keyboardNote[keyToRemove];
 }
 
 const newButtonReverseSlash = document.createElement("button");
@@ -269,14 +269,9 @@ buttonReverseSlash.addEventListener("click", () => {
 
 Object.values(buttons).forEach(button => {
   button.addEventListener("click", () => {
-    button.classList.add("key-highlights");
-    const button = buttons[`item${keyName}`];  
-    if (button) {
-      inputText.value += "\\";
-      inputText.focus();
-    } 
-  });
+    button.classList.add("key-highlights");    
 });
+})
 
 document.addEventListener("keydown", event => {
   const keyName = event.key.toUpperCase();
