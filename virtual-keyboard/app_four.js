@@ -1,56 +1,17 @@
 const keyboardNote = {
-  itemSymbol: {
-    itemApproximately: "~",
-    itemCommaReverse: "`"
-  },
-  itemOne: {
-    itemExclamation: "!",
-    item1: "1"
-  },
-  itemTwo: {
-    itemAt: "@",
-    item2: "2"
-  },
-  itemThree: {
-    itemGrill: "#",
-    item3: "3"
-  },
-  itemFour: {
-    itemDollar: "$",
-    item4: "4"
-  },
-  itemFive: {
-    itemInterest: "%",
-    item5: "5"
-  },
-  itemSix: {
-    itemColon: ":",
-    item6: "6"
-  },
-  itemSeven: {
-    itemQuestion: "?",
-    item7: "7"
-  },
-  itemEight: {
-    itemStar: "?",
-    item8: "8"
-  },
-  itemNine: {
-    itemBracketCircleLeft: "(",
-    item9: "9"
-  },
-  itemZero: {
-    itemBracketCircleRight: ")",
-    item0: "0"
-  },
-  itemMinuses: {
-    itemMinuseDown: "_",
-    itemMinuse: "-"
-  },
-  itemPlusEquals: {
-    itemPlus: "+",
-    itemEquals: "="
-  },
+  itemSymbol: { itemApproximately: "~", itemCommaReverse: "`" },
+  itemOne: { itemExclamation: "!", item1: "1" },
+  itemTwo: { temAt: "@", item2: "2" },
+  itemThree: { itemGrill: "#", item3: "3" },
+  itemFour: { itemDollar: "$", item4: "4" },
+  itemFive: { itemInterest: "%", item5: "5" },
+  itemSix: { itemColon: ":", item6: "6" },
+  itemSeven: { itemQuestion: "?", item7: "7" },
+  itemEight: { itemStar: "?", item8: "8" },
+  itemNine: { itemBracketCircleLeft: "(", item9: "9" },
+  itemZero: { itemBracketCircleRight: ")", item0: "0" },
+  itemMinuses: { itemMinuseDown: "_", itemMinuse: "-" },
+  itemPlusEquals: { itemPlus: "+", itemEquals: "=" },
   itemBackspace: "Backspace",
   itemTab: "Tab",
   itemQ: "Q",
@@ -102,7 +63,7 @@ const keyboardNote = {
   itemCtrlRight: "Ctrl",
   itemArrowLeft: " ",
   itemArrowDown: " ",
-  itemArrowRight: " " 
+  itemArrowRight: " ",
 };
 
 const CssClasses = {
@@ -119,58 +80,47 @@ const CssClasses = {
   CAPS_LOCK: "caps-lock",
   DEL: "del",
   ENTER: "enter",
-  SHIFT: "shift",  
-  CTRL: "ctrl",   
-  SPACE: "space",  
-}
-
+  SHIFT: "shift",
+  CTRL: "ctrl",
+  SPACE: "space",
+};
 const wrapper = document.createElement("div");
-  wrapper.className = CssClasses.WRAPPER;
-  document.body.append(wrapper); 
-
-  const inputText = document.createElement("input");
-  inputText.className = CssClasses.INPUT;
-  inputText.type = "text";
-  wrapper.appendChild(inputText); 
-
-  const keyboard = document.createElement("div");
-  keyboard.className = CssClasses.KEYBOARD;
-  wrapper.appendChild(keyboard); 
+wrapper.className = CssClasses.WRAPPER;
+document.body.append(wrapper);
+const inputText = document.createElement("input");
+inputText.className = CssClasses.INPUT;
+inputText.type = "text";
+wrapper.appendChild(inputText);
+const keyboard = document.createElement("div");
+keyboard.className = CssClasses.KEYBOARD;
+wrapper.appendChild(keyboard);
 
 const buttons = {};
 
-for (let key in keyboardNote) {
-  //console.log(key);
+Object.keys(keyboardNote).forEach((key) => {
   const buttonContent = document.createElement("button");
- 
-  if (typeof keyboardNote[key] === "object") {    
-    buttonContent.className = CssClasses.SYMBOLS;  
+
+  if (typeof keyboardNote[key] === "object") {
+    buttonContent.className = CssClasses.SYMBOLS;
     buttonContent.innerText = keyboardNote[key][Object.keys(keyboardNote[key])[1]];
-    
+
     const divTopSymbol = document.createElement("span");
     divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
     divTopSymbol.innerText = keyboardNote[key][Object.keys(keyboardNote[key])[0]];
-    buttonContent.appendChild(divTopSymbol);    
-    
-  } else {    
+    buttonContent.appendChild(divTopSymbol);
+  } else {
     buttonContent.className = CssClasses.CONTENT;
-    buttonContent.innerText = `${keyboardNote[key]}`;   
-    
+    buttonContent.innerText = `${keyboardNote[key]}`;
   }
   keyboard.appendChild(buttonContent);
   buttons[key] = buttonContent;
 
- 
- buttonContent.addEventListener("click", (event) => {
-  
-  inputText.value += event.target.innerText;
-  
-  inputText.focus();
+  buttonContent.addEventListener("click", (event) => {
+    inputText.value += event.target.innerText;
+
+    inputText.focus();
+  });
 });
-
-};
-
-
 const buttonBackspace = buttons.itemBackspace;
 buttonBackspace.classList.add(CssClasses.CONTROL_KEY);
 buttonBackspace.classList.add(CssClasses.BACKSPACE);
@@ -208,9 +158,6 @@ buttonWin.classList.add(CssClasses.CONTROL_KEY);
 const buttonAltLeft = buttons.itemAltleft;
 buttonAltLeft.classList.add(CssClasses.CONTROL_KEY);
 
-
-
-
 const buttonSpace = buttons.itemSpace;
 buttonSpace.classList.add(CssClasses.CONTROL_KEY);
 buttonSpace.classList.add(CssClasses.SPACE);
@@ -242,7 +189,7 @@ const buttonArrowRight = buttons.itemArrowRight;
 buttonArrowRight.classList.add(CssClasses.CONTROL_KEY);
 buttonArrowRight.innerHTML = "<img src='images/arrow-right.svg'>";
 
-const keyToRemove = "itemReverseSlash"; 
+const keyToRemove = "itemReverseSlash";
 const buttonToRemove = buttons[keyToRemove];
 if (buttonToRemove) {
   buttonToRemove.remove();
@@ -254,11 +201,11 @@ newButtonReverseSlash.className = CssClasses.SYMBOLS;
 newButtonReverseSlash.innerHTML = "\\";
 
 const divTopSymbol = document.createElement("span");
-  divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
-  divTopSymbol.innerHTML = "/";
-  newButtonReverseSlash.appendChild(divTopSymbol);
+divTopSymbol.className = CssClasses.TOP_LEFT_SYMBOL;
+divTopSymbol.innerHTML = "/";
+newButtonReverseSlash.appendChild(divTopSymbol);
 
-keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel); 
+keyboard.insertBefore(newButtonReverseSlash, buttons.itemDel);
 buttons.itemReverseSlash = newButtonReverseSlash;
 
 const buttonReverseSlash = buttons.itemReverseSlash;
@@ -267,55 +214,55 @@ buttonReverseSlash.addEventListener("click", () => {
   inputText.focus();
 });
 
-Object.values(buttons).forEach(button => {
+Object.values(buttons).forEach((button) => {
   button.addEventListener("click", () => {
-    button.classList.add("key-highlights");    
+    button.classList.add("key-highlights");
+  });
 });
-})
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   const keyName = event.key.toUpperCase();
-  const button = buttons[`item${keyName}`];  
-  if (button) {    
+  const button = buttons[`item${keyName}`];
+  if (button) {
     button.classList.add("key-highlights");
     console.log(event.key);
-  } 
+  }
   if (event.key === "`" && buttons.itemSymbol) {
     buttons.itemSymbol.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "1" && buttons.itemOne) {
     buttons.itemOne.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "2" && buttons.itemTwo) {
     buttons.itemTwo.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "3" && buttons.itemThree) {
     buttons.itemThree.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "4" && buttons.itemFour) {
     buttons.itemFour.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "5" && buttons.itemFive) {
     buttons.itemFive.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "6" && buttons.itemSix) {
     buttons.itemSix.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "7" && buttons.itemSeven) {
     buttons.itemSeven.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "8" && buttons.itemEight) {
     buttons.itemEight.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "9" && buttons.itemNine) {
     buttons.itemNine.classList.add("key-highlights");
-  }  
+  }
   if (event.key === "0" && buttons.itemZero) {
     buttons.itemZero.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "-" && buttons.itemMinuses) {
     buttons.itemMinuses.classList.add("key-highlights");
-  } 
+  }
   if (event.key === "=" && buttons.itemPlusEquals) {
     buttons.itemPlusEquals.classList.add("key-highlights");
   }
@@ -323,7 +270,7 @@ document.addEventListener("keydown", event => {
     buttons.itemDel.classList.add("key-highlights");
   }
   if (event.key === "\\" && buttons.itemReverseSlash) {
-    buttons.itemReverseSlash.classList.add("key-highlights");    
+    buttons.itemReverseSlash.classList.add("key-highlights");
   }
   if (event.key === "CapsLock" && buttons.itemCapsLock) {
     buttons.itemCapsLock.classList.add("key-highlights");
@@ -345,10 +292,9 @@ document.addEventListener("keydown", event => {
   }
   if (event.key === "Alt" && buttons.itemAltRight) {
     buttons.itemAltRight.classList.add("key-highlights");
-    
   }
   if (event.key === "Shift" && buttons.itemShiftSmall) {
-    buttons.itemShiftSmall.classList.add("key-highlights");    
+    buttons.itemShiftSmall.classList.add("key-highlights");
   }
   if (event.key === "ArrowUp" && buttons.itemArrowUp) {
     buttons.itemArrowUp.classList.add("key-highlights");
@@ -364,9 +310,9 @@ document.addEventListener("keydown", event => {
   }
 });
 
-document.addEventListener("keydown", event => {
+document.addEventListener("keydown", (event) => {
   const keyName = event.key;
-  const button = Object.values(buttons).find(b => b.innerText === keyName);
+  const button = Object.values(buttons).find((b) => b.innerText === keyName);
   if (button) {
     button.classList.add("key-highlights");
   }
@@ -374,22 +320,7 @@ document.addEventListener("keydown", event => {
 
 inputText.addEventListener("input", (event) => {
   const input = event.target;
- 
   const startPosition = input.selectionStart;
   const endPosition = input.selectionEnd;
-  
-  input.value = input.value;
- 
   input.setSelectionRange(startPosition, endPosition);
 });
-
-/*buttons.addEventListener("click", () => {
-  const input = inputText;
-  
-  const startPosition = input.selectionStart;
-  const endPosition = input.selectionEnd;
-  
-  input.value = input.value.substring(0, startPosition) + buttons.innerText + input.value.substring(endPosition);
-  
-  input.setSelectionRange(startPosition + buttons.innerText.length, startPosition + buttons.innerText.length);
-});*/
