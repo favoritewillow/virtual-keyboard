@@ -281,49 +281,49 @@ function firstLine() {
     } 
   })
 
-  document.addEventListener("keyup", function (event) {   
+  document.addEventListener("mousedown", function (event) {   
     console.log(event);  
     if (event.key === "`") {
-      buttonLeftSymbol.classList.remove("key-highlights");
+      buttonLeftSymbol.classList.add("key-highlights");
     } 
     if (event.key === "1") {
-      buttonOne.classList.remove("key-highlights");
+      buttonOne.classList.add("key-highlights");
     }  
     if (event.key === "2") {
-      buttonTwo.classList.remove("key-highlights");
+      buttonTwo.classList.add("key-highlights");
     }  
     if (event.key === "3") {
-      buttonThree.classList.remove("key-highlights");
+      buttonThree.classList.add("key-highlights");
     } 
     if (event.key === "4") {
-      buttonFour.classList.remove("key-highlights");
+      buttonFour.classList.add("key-highlights");
     }   
     if (event.key === "5") {
-      buttonFive.classList.remove("key-highlights");
+      buttonFive.classList.add("key-highlights");
     }  
     if (event.key === "6") {
-      buttonSix.classList.remove("key-highlights");
+      buttonSix.classList.add("key-highlights");
     }  
     if (event.key === "7") {
-      buttonSeven.classList.remove("key-highlights");
+      buttonSeven.classList.add("key-highlights");
     }  
     if (event.key === "8") {
-      buttonEight.classList.remove("key-highlights");
+      buttonEight.classList.add("key-highlights");
     }  
     if (event.key === "9") {
-      buttonNine.classList.remove("key-highlights");
+      buttonNine.classList.add("key-highlights");
     }  
     if (event.key === "0") {
-      buttonZero.classList.remove("key-highlights");
+      buttonZero.classList.add("key-highlights");
     }  
     if (event.key === "-") {
-      buttonMinuse.classList.remove("key-highlights");
+      buttonMinuse.classList.add("key-highlights");
     }  
     if (event.key === "=") {
-      buttonEquals.classList.remove("key-highlights");
+      buttonEquals.classList.add("key-highlights");
     } 
     if (event.key === "Backspace") {
-      buttonBackspace.classList.remove("key-highlights");
+      buttonBackspace.classList.add("key-highlights");
     } 
   })
 }
@@ -449,52 +449,52 @@ function secondLine() {
       buttonDel.classList.add("key-highlights");
     } 
   })
-  document.addEventListener("keyup", function (event) {   
+  document.addEventListener("mousedown", function (event) {   
     console.log(event);  
     if (event.key === "Tab") {
-      buttonTab.classList.remove("key-highlights");
+      buttonTab.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "Q") {
-      buttonQ.classList.remove("key-highlights");
+      buttonQ.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "W") {
-      buttonW.classList.remove("key-highlights");
+      buttonW.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "E") {
-      buttonE.classList.remove("key-highlights");
+      buttonE.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "R") {
-      buttonR.classList.remove("key-highlights");
+      buttonR.classList.add("key-highlights");
     }   
     if (event.key.toUpperCase() === "T") {
-      buttonT.classList.remove("key-highlights");
+      buttonT.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "Y") {
-      buttonY.classList.remove("key-highlights");
+      buttonY.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "U") {
-      buttonU.classList.remove("key-highlights");
+      buttonU.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "I") {
-      buttonI.classList.remove("key-highlights");
+      buttonI.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "O") {
-      buttonO.classList.remove("key-highlights");
+      buttonO.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "P") {
-      buttonP.classList.remove("key-highlights");
+      buttonP.classList.add("key-highlights");
     }  
     if (event.key === "[") {
-      buttonBracketLeft.classList.remove("key-highlights");
+      buttonBracketLeft.classList.add("key-highlights");
     }  
     if (event.key === "]") {
-      buttonBracketRight.classList.remove("key-highlights");
+      buttonBracketRight.classList.add("key-highlights");
     } 
     if (event.key === "\\") {
-      buttonReverseSlash.classList.remove("key-highlights");
+      buttonReverseSlash.classList.add("key-highlights");
     } 
     if (event.key === "Delete") {
-      buttonDel.classList.remove("key-highlights");
+      buttonDel.classList.add("key-highlights");
     } 
   })  
 }
@@ -600,46 +600,46 @@ function thirdLine() {
     }   
   })
 
-  document.addEventListener("keyup", function (event) {   
+  document.addEventListener("mousedown", function (event) {   
     console.log(event);  
     if (event.key === "CapsLock") {
-      buttonCapsLock.classList.remove("key-highlights");
+      buttonCapsLock.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "A") {
-      buttonA.classList.remove("key-highlights");
+      buttonA.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "S") {
-      buttonS.classList.remove("key-highlights");
+      buttonS.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "D") {
-      buttonD.classList.remove("key-highlights");
+      buttonD.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "F") {
-      buttonF.classList.remove("key-highlights");
+      buttonF.classList.add("key-highlights");
     }   
     if (event.key.toUpperCase() === "G") {
-      buttonG.classList.remove("key-highlights");
+      buttonG.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "H") {
-      buttonH.classList.remove("key-highlights");
+      buttonH.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "J") {
-      buttonJ.classList.remove("key-highlights");
+      buttonJ.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "K") {
-      buttonK.classList.remove("key-highlights");
+      buttonK.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "L") {
-      buttonL.classList.remove("key-highlights");
+      buttonL.classList.add("key-highlights");
     }  
     if (event.key === ";") {
-      buttonSemicolon.classList.remove("key-highlights");
+      buttonSemicolon.classList.add("key-highlights");
     }  
     if (event.key === "'") {
-      buttonCommaTop.classList.remove("key-highlights");
+      buttonCommaTop.classList.add("key-highlights");
     }    
     if (event.key === "Enter") {
-      buttonEnter.classList.remove("key-highlights");
+      buttonEnter.classList.add("key-highlights");
     }   
   })
 }
@@ -752,49 +752,49 @@ function fourthLine() {
     }   
   })
 
-  document.addEventListener("keyup", function (event) {   
+  document.addEventListener("mousedown", function (event) {   
     console.log(event);  
     if (event.key === "Shift") {
-      buttonShift.classList.remove("key-highlights");
+      buttonShift.classList.add("key-highlights");
     } 
     if (event.key === "\\") {
-      buttonSlashReverse.classList.remove("key-highlights");
+      buttonSlashReverse.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "Z") {
-      buttonZ.classList.remove("key-highlights");
+      buttonZ.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "X") {
-      buttonX.classList.remove("key-highlights");
+      buttonX.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "C") {
-      buttonC.classList.remove("key-highlights");
+      buttonC.classList.add("key-highlights");
     } 
     if (event.key.toUpperCase() === "V") {
-      buttonV.classList.remove("key-highlights");
+      buttonV.classList.add("key-highlights");
     }   
     if (event.key.toUpperCase() === "B") {
-      buttonB.classList.remove("key-highlights");
+      buttonB.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "N") {
-      buttonN.classList.remove("key-highlights");
+      buttonN.classList.add("key-highlights");
     }  
     if (event.key.toUpperCase() === "M") {
-      buttonM.classList.remove("key-highlights");
+      buttonM.classList.add("key-highlights");
     }  
     if (event.key === ".") {
-      buttonDot.classList.remove("key-highlights");
+      buttonDot.classList.add("key-highlights");
     }  
     if (event.key === ",") {
-      buttonComma.classList.remove("key-highlights");
+      buttonComma.classList.add("key-highlights");
     }  
     if (event.key === "/") {
-      buttonSlash.classList.remove("key-highlights");
+      buttonSlash.classList.add("key-highlights");
     }  
     if (event.key === "ArrowUp") {
-      buttonArrowUp.classList.remove("key-highlights");
+      buttonArrowUp.classList.add("key-highlights");
     }    
     if (event.key === "Shift") {
-      buttonSmallShift.classList.remove("key-highlights");
+      buttonSmallShift.classList.add("key-highlights");
     }   
   })
 }
@@ -871,34 +871,34 @@ function fifthLine() {
     }        
   })
 
-  document.addEventListener("keyup", function (event) {   
+  document.addEventListener("click", function (event) {   
     console.log(event);  
     if (event.key === "Control") {
-      buttonCtrlLeft.classList.remove("key-highlights");
+      buttonCtrlLeft.classList.add("key-highlights");
     } 
     if (event.key === "Meta") {
-      buttonWin.classList.remove("key-highlights");
+      buttonWin.classList.add("key-highlights");
     }  
     if (event.key === "Alt") {
-      buttonAltLeft.classList.remove("key-highlights");
+      buttonAltLeft.classList.add("key-highlights");
     }  
     if (event.key === " ") {
-      buttonSpace.classList.remove("key-highlights");
+      buttonSpace.classList.add("key-highlights");
     } 
     if (event.key === "Alt") {
-      buttonAltRight.classList.remove("key-highlights");
+      buttonAltRight.classList.add("key-highlights");
     }   
     if (event.key === "Control") {
-      buttonCtrlRight.classList.remove("key-highlights");
+      buttonCtrlRight.classList.add("key-highlights");
     }  
     if (event.key === "ArrowLeft") {
-      buttonArrowLeft.classList.remove("key-highlights");
+      buttonArrowLeft.classList.add("key-highlights");
     }  
     if (event.key === "ArrowDown") {
-      buttonArrowDown.classList.remove("key-highlights");
+      buttonArrowDown.classList.add("key-highlights");
     }  
     if (event.key === "ArrowRight") {
-      buttonArrowRight.classList.remove("key-highlights");
+      buttonArrowRight.classList.add("key-highlights");
     }        
   })
 }
