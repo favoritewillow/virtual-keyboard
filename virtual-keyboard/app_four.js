@@ -215,8 +215,14 @@ buttonReverseSlash.addEventListener("click", () => {
 });
 
 Object.values(buttons).forEach((button) => {
-  button.addEventListener("click", () => {
+  button.addEventListener("mousedown", () => {
     button.classList.add("key-highlights");
+  });
+});
+
+Object.values(buttons).forEach((button) => {
+  button.addEventListener("mouseup", () => {
+    button.classList.remove("key-highlights");
   });
 });
 
@@ -315,6 +321,104 @@ document.addEventListener("keydown", (event) => {
   const button = Object.values(buttons).find((b) => b.innerText === keyName);
   if (button) {
     button.classList.add("key-highlights");
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  const keyName = event.key;
+  const button = Object.values(buttons).find((b) => b.innerText === keyName);
+  if (button) {
+    button.classList.remove("key-highlights");
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  const keyName = event.key.toUpperCase();
+  const button = buttons[`item${keyName}`];
+  if (button) {
+    button.classList.remove("key-highlights");
+    console.log(event.key);
+  }
+  if (event.key === "`" && buttons.itemSymbol) {
+    buttons.itemSymbol.classList.remove("key-highlights");
+  }
+  if (event.key === "1" && buttons.itemOne) {
+    buttons.itemOne.classList.remove("key-highlights");
+  }
+  if (event.key === "2" && buttons.itemTwo) {
+    buttons.itemTwo.classList.remove("key-highlights");
+  }
+  if (event.key === "3" && buttons.itemThree) {
+    buttons.itemThree.classList.remove("key-highlights");
+  }
+  if (event.key === "4" && buttons.itemFour) {
+    buttons.itemFour.classList.remove("key-highlights");
+  }
+  if (event.key === "5" && buttons.itemFive) {
+    buttons.itemFive.classList.remove("key-highlights");
+  }
+  if (event.key === "6" && buttons.itemSix) {
+    buttons.itemSix.classList.remove("key-highlights");
+  }
+  if (event.key === "7" && buttons.itemSeven) {
+    buttons.itemSeven.classList.remove("key-highlights");
+  }
+  if (event.key === "8" && buttons.itemEight) {
+    buttons.itemEight.classList.remove("key-highlights");
+  }
+  if (event.key === "9" && buttons.itemNine) {
+    buttons.itemNine.classList.remove("key-highlights");
+  }
+  if (event.key === "0" && buttons.itemZero) {
+    buttons.itemZero.classList.remove("key-highlights");
+  }
+  if (event.key === "-" && buttons.itemMinuses) {
+    buttons.itemMinuses.classList.remove("key-highlights");
+  }
+  if (event.key === "=" && buttons.itemPlusEquals) {
+    buttons.itemPlusEquals.classList.remove("key-highlights");
+  }
+  if (event.key === "Delete" && buttons.itemDel) {
+    buttons.itemDel.classList.remove("key-highlights");
+  }
+  if (event.key === "\\" && buttons.itemReverseSlash) {
+    buttons.itemReverseSlash.classList.remove("key-highlights");
+  }
+  if (event.key === "CapsLock" && buttons.itemCapsLock) {
+    buttons.itemCapsLock.classList.remove("key-highlights");
+  }
+  if (event.key === "Control" && buttons.itemCtrlLeft) {
+    buttons.itemCtrlLeft.classList.remove("key-highlights");
+  }
+  if (event.key === "Control" && buttons.itemCtrlRight) {
+    buttons.itemCtrlRight.classList.remove("key-highlights");
+  }
+  if (event.key === "Meta" && buttons.itemWin) {
+    buttons.itemWin.classList.remove("key-highlights");
+  }
+  if (event.key === "Enter" && buttons.itemEnter) {
+    buttons.itemEnter.classList.remove("key-highlights");
+  }
+  if (event.key === " " && buttons.itemSpace) {
+    buttons.itemSpace.classList.remove("key-highlights");
+  }
+  if (event.key === "Alt" && buttons.itemAltRight) {
+    buttons.itemAltRight.classList.remove("key-highlights");
+  }
+  if (event.key === "Shift" && buttons.itemShiftSmall) {
+    buttons.itemShiftSmall.classList.remove("key-highlights");
+  }
+  if (event.key === "ArrowUp" && buttons.itemArrowUp) {
+    buttons.itemArrowUp.classList.remove("key-highlights");
+  }
+  if (event.key === "ArrowDown" && buttons.itemArrowDown) {
+    buttons.itemArrowDown.classList.remove("key-highlights");
+  }
+  if (event.key === "ArrowLeft" && buttons.itemArrowLeft) {
+    buttons.itemArrowLeft.classList.remove("key-highlights");
+  }
+  if (event.key === "ArrowRight" && buttons.itemArrowRight) {
+    buttons.itemArrowRight.classList.remove("key-highlights");
   }
 });
 
