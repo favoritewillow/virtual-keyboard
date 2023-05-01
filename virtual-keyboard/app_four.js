@@ -87,9 +87,10 @@ const CssClasses = {
 const wrapper = document.createElement("div");
 wrapper.className = CssClasses.WRAPPER;
 document.body.append(wrapper);
-const inputText = document.createElement("input");
+const inputText = document.createElement("textarea");
 inputText.className = CssClasses.INPUT;
 inputText.type = "text";
+inputText.placeholder = "EN";
 wrapper.appendChild(inputText);
 const keyboard = document.createElement("div");
 keyboard.className = CssClasses.KEYBOARD;
@@ -427,4 +428,8 @@ inputText.addEventListener("input", (event) => {
   const startPosition = input.selectionStart;
   const endPosition = input.selectionEnd;
   input.setSelectionRange(startPosition, endPosition);
+});
+
+inputText.addEventListener("input", (event) => {
+  inputText.value = event.target.value;
 });
