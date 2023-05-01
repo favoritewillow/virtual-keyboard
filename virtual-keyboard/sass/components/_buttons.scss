@@ -1,0 +1,16 @@
+.keyboard__content {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: 0.1rem solid $color-key-border;
+  border-radius: 0.6rem;
+  background-color: $color-key-background;
+  color: $color-key-letter;  
+  text-align: center;
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin: 0.5rem 0.3rem;  
+}
